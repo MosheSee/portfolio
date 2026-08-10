@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>מוקאפ: לפני / אחרי — א.א הובלות</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #e8e6e1;
+    font-family: Arial, "Segoe UI", sans-serif;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 56px;
+  }
+  .frame {
+    width: 100%;
+    max-width: 960px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 12px 40px rgba(0,0,0,.18);
+    background: #fff;
+  }
+  .frame-label {
+    max-width: 960px;
+    width: 100%;
+    font-size: 13px;
+    color: #666;
+    margin-bottom: -46px;
+    letter-spacing: .3px;
+  }
+  /* browser chrome bar */
+  .chrome {
+    background: #dfdfdf;
+    padding: 9px 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    direction: ltr;
+  }
+  .dot { width: 11px; height: 11px; border-radius: 50%; }
+  .d1 { background: #ff5f57; } .d2 { background: #febc2e; } .d3 { background: #28c840; }
+  .urlbar {
+    flex: 1;
+    background: #fff;
+    border-radius: 5px;
+    padding: 5px 12px;
+    font-size: 12px;
+    color: #888;
+    direction: ltr;
+  }
+
+  /* ---------- BEFORE: dated 2012-era Israeli SMB site ---------- */
+  .before-top {
+    background: #1a3e7c;
+    color: #fff;
+    padding: 10px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+  }
+  .before-top .phone { color: #ffd400; font-weight: bold; font-size: 15px; }
+  .before-nav {
+    background: #ffd400;
+    display: flex;
+    gap: 0;
+    font-size: 13px;
+    font-weight: bold;
+  }
+  .before-nav span {
+    padding: 9px 18px;
+    border-left: 1px solid rgba(0,0,0,.15);
+    color: #1a3e7c;
+  }
+  .before-hero {
+    background: linear-gradient(135deg, #2a5298 0%, #1a3e7c 60%, #16325f 100%);
+    color: #fff;
+    text-align: center;
+    padding: 52px 30px 58px;
+    position: relative;
+  }
+  .before-hero h1 {
+    font-size: 30px;
+    margin-bottom: 16px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,.45);
+  }
+  .before-hero p {
+    font-size: 15px;
+    line-height: 1.75;
+    max-width: 640px;
+    margin: 0 auto 22px;
+    color: #dce6f5;
+  }
+  .before-hero .badges {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+  .before-hero .badge {
+    background: rgba(255,255,255,.14);
+    border: 1px dashed rgba(255,255,255,.5);
+    border-radius: 6px;
+    padding: 7px 14px;
+    font-size: 12.5px;
+  }
+  .before-btn {
+    display: inline-block;
+    background: linear-gradient(#ffe15c, #f5c400);
+    color: #1a3e7c;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 11px 34px;
+    border-radius: 30px;
+    border: 2px solid #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,.3);
+    text-decoration: none;
+  }
+  .before-strip {
+    background: #f1f1f1;
+    text-align: center;
+    padding: 13px;
+    font-size: 12.5px;
+    color: #555;
+    border-top: 3px solid #ffd400;
+  }
+
+  /* ---------- AFTER: crafted editorial hero ---------- */
+  @import url('https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700;900&family=Heebo:wght@400;500;700&display=swap');
+
+  .after-hero {
+    background: #0f2a22;
+    background-image:
+      radial-gradient(circle at 88% 8%, rgba(255,255,255,.05), transparent 45%),
+      repeating-linear-gradient(115deg, rgba(255,255,255,.025) 0 1px, transparent 1px 34px);
+    color: #f4f1e8;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1.35fr 1fr;
+    align-items: stretch;
+    font-family: 'Heebo', Arial, sans-serif;
+  }
+  .after-main {
+    padding: 60px 48px 60px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .after-kicker {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    letter-spacing: .6px;
+    font-weight: 500;
+    color: #c9a15a;
+    margin-bottom: 26px;
+  }
+  .after-kicker::before {
+    content: "";
+    width: 26px;
+    height: 1px;
+    background: #c9a15a;
+  }
+  .after-hero h1 {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 44px;
+    line-height: 1.28;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #fff;
+  }
+  .after-hero h1 em {
+    font-style: normal;
+    color: #c9a15a;
+  }
+  .after-hero p {
+    font-size: 16.5px;
+    line-height: 1.75;
+    color: #cfd8cf;
+    max-width: 480px;
+    margin-bottom: 34px;
+  }
+  .after-cta-row { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+  .after-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    background: #c9a15a;
+    color: #0f2a22;
+    font-size: 15.5px;
+    font-weight: 700;
+    padding: 15px 26px;
+    border-radius: 3px;
+    text-decoration: none;
+    transition: transform .15s ease;
+  }
+  .after-note { font-size: 13px; color: #8fa494; }
+  .after-proof {
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(244,241,232,.14);
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  .after-proof div strong {
+    display: block;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 26px;
+    color: #fff;
+    font-weight: 700;
+  }
+  .after-proof div span { font-size: 12.5px; color: #8fa494; }
+
+  .after-visual {
+    position: relative;
+    background: #0b211a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    border-right: 1px solid rgba(244,241,232,.08);
+  }
+  .after-chatcard {
+    background: #f4f1e8;
+    color: #14231c;
+    border-radius: 6px;
+    padding: 20px;
+    width: 100%;
+    max-width: 260px;
+    box-shadow: 0 20px 50px rgba(0,0,0,.35);
+  }
+  .after-chatcard .who {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12.5px;
+    font-weight: 700;
+    margin-bottom: 14px;
+    color: #1d6b4f;
+  }
+  .after-chatcard .who span.dot {
+    width: 8px; height: 8px; border-radius: 50%; background: #2fbf71;
+  }
+  .after-bubble {
+    background: #e7e3d6;
+    border-radius: 4px;
+    padding: 10px 12px;
+    font-size: 13px;
+    line-height: 1.55;
+    margin-bottom: 8px;
+  }
+  .after-bubble.me {
+    background: #c9a15a;
+    color: #14231c;
+    font-weight: 600;
+  }
+  .after-time { font-size: 10.5px; color: #9a9484; margin-top: 6px; }
+
+  @media (max-width: 720px) {
+    .after-hero { grid-template-columns: 1fr; }
+    .after-visual { display: none; }
+    .after-main { padding: 44px 26px; }
+    .after-hero h1 { font-size: 30px; }
+    .before-hero h1 { font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="frame-label">לפני — שחזור של עמוד הבית המקורי</div>
+  <div class="frame">
+    <div class="chrome">
+      <span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span>
+      <div class="urlbar">www.aa-hovalot.co.il</div>
+    </div>
+    <div class="before-top">
+      <span>א.א הובלות בע"מ</span>
+      <span class="phone">☎ 03-1234567</span>
+    </div>
+    <div class="before-hero">
+      <h1>ברוכים הבאים לאתר של א.א הובלות!</h1>
+      <p>אנחנו חברה עם ניסיון של מעל 15 שנה בתחום ההובלות. אנו מבצעים הובלות דירות, הובלות משרדים, פירוק והרכבה של רהיטים, שירותי אריזה ואחסון ועוד. צוות מקצועי, אמין ואדיב.</p>
+      <div class="badges">
+        <span class="badge">הובלות דירות</span>
+        <span class="badge">הובלות משרדים</span>
+        <span class="badge">פירוק והרכבה</span>
+        <span class="badge">אריזה ואחסון</span>
+      </div>
+      <a class="before-btn" href="#">לפרטים נוספים צרו קשר</a>
+    </div>
+    <div class="before-strip">א.א הובלות — שירות מקצועי ואמין בכל רחבי הארץ | כל הזכויות שמורות ©</div>
+  </div>
+
+  <div class="frame-label">אחרי — השכתוב שלי</div>
+  <div class="frame">
+    <div class="chrome">
+      <span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span>
+      <div class="urlbar">www.aa-hovalot.co.il</div>
+    </div>
+    <div class="after-hero">
+      <div class="after-main">
+        <span class="after-kicker">הובלות דירות ומשרדים · כל הארץ</span>
+        <h1>עוברים דירה <em>בלי לשבור את הגב</em> — ובלי לשבור כלום.</h1>
+        <p>צוות שמגיע בזמן, אורז, מוביל ומרכיב — ואתם נכנסים לדירה החדשה מוכנה לחיים. 15 שנה, אלפי משפחות מרוצות, אפס תירוצים.</p>
+        <div class="after-cta-row">
+          <a class="after-btn" href="#">קבלו הצעת מחיר בוואטסאפ ←</a>
+          <span class="after-note">מענה תוך שעה · ללא התחייבות</span>
+        </div>
+        <div class="after-proof">
+          <div><strong>15+</strong><span>שנות ניסיון</span></div>
+          <div><strong>4,000+</strong><span>משפחות שעברו איתנו</span></div>
+          <div><strong>0</strong><span>תירוצים</span></div>
+        </div>
+      </div>
+      <div class="after-visual">
+        <div class="after-chatcard">
+          <div class="who"><span class="dot"></span> א.א הובלות — וואטסאפ</div>
+          <div class="after-bubble">היי! רוצה הצעת מחיר להובלת דירה 3 חדרים מחיפה לתל אביב 🙂</div>
+          <div class="after-bubble me">בטח! מתי תאריך ההובלה המתוכנן?</div>
+          <div class="after-time">נשלח לפני שעה קלה</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
